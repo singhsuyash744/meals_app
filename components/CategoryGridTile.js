@@ -1,6 +1,6 @@
 import { Pressable, View, Text, StyleSheet, Platform } from 'react-native';
 
-function CategoryGridTile({ title, color }) {
+function CategoryGridTile({ title, color, onPress }) {
   return (
     <View style={styles.gridItem}>
       <Pressable
@@ -9,6 +9,7 @@ function CategoryGridTile({ title, color }) {
           styles.button,
           pressed ? styles.buttonPressed : null,
         ]}
+        onPress={onPress}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>
@@ -23,7 +24,7 @@ export default CategoryGridTile;
 const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
-    margin: 17,
+    margin: 16,
     height: 150,
     borderRadius: 8,
     elevation: 4,
